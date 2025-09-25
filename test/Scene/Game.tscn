@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb1aq6e6a42ww"]
+
+[ext_resource type="Script" uid="uid://bhrwhuy23biha" path="res://Script/OnlineWorkshop/GameScript.gd" id="1_6igcf"]
+[ext_resource type="Script" uid="uid://dvswtjdhv0mix" path="res://Script/OnlineWorkshop/CharacterScriptWithMovement.gd" id="2_ou18a"]
+[ext_resource type="Texture2D" uid="uid://8phdhw1fs5pp" path="res://icon.svg" id="3_ivtx6"]
+[ext_resource type="Script" uid="uid://cq3jd4m81k5rl" path="res://Script/OnlineWorkshop/HitboxScript.gd" id="3_mopgc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8mdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mopgc"]
+size = Vector2(990.5, 90)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6igcf")
+
+[node name="ChildNumber2" type="Node2D" parent="."]
+
+[node name="Character" type="CharacterBody2D" parent="."]
+position = Vector2(100, 100)
+scale = Vector2(5, 5)
+script = ExtResource("2_ou18a")
+SPEED = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Character"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ivtx6")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Character"]
+shape = SubResource("CapsuleShape2D_i8mdi")
+script = ExtResource("3_mopgc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(500.75, 573)
+shape = SubResource("RectangleShape2D_mopgc")

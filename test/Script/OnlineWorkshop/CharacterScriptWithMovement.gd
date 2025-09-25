@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 
+var has_double_jumped = false
+
+# Implement a double jump mechanic
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
